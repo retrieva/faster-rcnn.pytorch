@@ -1,3 +1,4 @@
+ANCHOR_SCALES: [4,8,16,32]
 EXP_DIR: res101
 TRAIN:
   HAS_RPN: True

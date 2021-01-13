@@ -165,12 +165,11 @@ if __name__ == '__main__':
   load_name = os.path.join(input_dir,
     'faster_rcnn_{}_{}_{}.pth'.format(args.checksession, args.checkepoch, args.checkpoint))
 
-  pascal_classes = np.asarray(['__background__',
-                       'aeroplane', 'bicycle', 'bird', 'boat',
-                       'bottle', 'bus', 'car', 'cat', 'chair',
-                       'cow', 'diningtable', 'dog', 'horse',
-                       'motorbike', 'person', 'pottedplant',
-                       'sheep', 'sofa', 'train', 'tvmonitor'])
+  pascal_classes = ['__background__']
+  with open(input_dir + "/objects_vocab.txt") as f:
+      for line in f.readlines():
+          pascal_classes.append(line.strip())
+  pascal_classes = np.asarray(pascal_classes)
 
   # initilize the network here.
   if args.net == 'vgg16':
