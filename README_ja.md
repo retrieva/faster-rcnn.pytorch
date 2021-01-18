@@ -11,12 +11,7 @@ $ pip install -U pip
 Bottom-up-attentionのclone
 
 ```bash
-git clone git@github.com:peteanderson80/bottom-up-attention.git
-```
-
-Bottome-up-attentionのセットアップ
-
-```bash
+$ git clone git@github.com:peteanderson80/bottom-up-attention.git
 $ cd bottom-up-attention
 ```
 
@@ -27,7 +22,7 @@ $ cd bottom-up-attention
 ```bash
 $ cd ../data
 $ mkdir vg
-``
+```
 
 Visual Genomeのデータ( https://visualgenome.org/api/v0/api_home.html )のダウンロード
 
