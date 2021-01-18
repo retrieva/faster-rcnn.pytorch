@@ -16,8 +16,9 @@ git clone git@github.com:peteanderson80/bottom-up-attention.git
 
 Bottome-up-attentionのセットアップ
 
-```sh
+```bash
 $ cd bottom-up-attention
+```
 
 # データセットの作成
 
@@ -53,7 +54,7 @@ $ for i in *.zip;do unzip $i;done
 
 ```
 
-データセットの前処理
+データセットの前処理の実行
 
 ```bash
 $ cd ../../ 
@@ -74,6 +75,8 @@ $ git checkout -b origin/visual-genome
 $ pip install scipy==1.1 torch==1.0.0 torchvision==0.2.2 pycocotools
 $ pip install -r requirements.txt
 ```
+
+ライブラリのビルド
 
 ```bash
 $ cd lib
@@ -101,7 +104,7 @@ $ mkdir data/pretrained_model
 
 # 学習の実行
 
-下記のコマンドで学習を実行する。GPU一枚のときは `--mGPU` オプションは省略する。
+下記のコマンドで学習を実行する。GPU一枚のときは `--mGPUs` オプションは省略する。
 ```bash
 $ python trainval_net.py --dataset vg --net res101 --bs 16 --nw 4 --lr 1e-3 --lr_decay_step 5 --cuda --mGPUs
 ```
