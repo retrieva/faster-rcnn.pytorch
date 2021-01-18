@@ -20,7 +20,7 @@ $ cd bottom-up-attention
 データセット作成用作業ディレクトリの作成
 
 ```bash
-$ cd ../data
+$ cd data
 $ mkdir vg
 ```
 
