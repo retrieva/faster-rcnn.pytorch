@@ -109,12 +109,15 @@ $ python trainval_net.py --dataset vg --net res101 --bs 16 --nw 4 --lr 1e-3 --lr
 
 # 推論の実行
 
-学習したモデルを参照するようにする。
+学習したモデル及びラベル情報をを参照するようにする。
 ```bash
 $ cd data/pretrained_model
 $ ln -s ../../models/res101/vg/faster_rcnn_1_20_12145.pth .
+$ ln -s ../../../../../bottome-up-attention/data/genome/1600-400-20/objects_vocab.txt .
 $ cd ../../
+
 ```
+
 推論を実行する
 ```
 $ python demo.py --net res101 --checksession 1  --checkepoch 20 --checkpoint 48915 --dataset vg --cfg cfgs/res101.yml  --cuda --load_dir data/pretrained_model/ --image_dir data/objects
