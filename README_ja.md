@@ -57,7 +57,7 @@ $ source env/bin/activate
 $ pip install -U pip
 ```
 
-レポジトリのclone 
+レポジトリのclone。 `git@github.com:jwyang/faster-rcnn.pytorch.git` の部分は適宜トヨタ様レポジトリに変更してください。
 
 ```bash
 $ cd ..
