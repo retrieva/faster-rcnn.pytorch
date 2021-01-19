@@ -1,12 +1,3 @@
-# Python 環境の作成
-python 3.6.9にて実施
-
-```bash
-$ python -m venv env
-$ source env/bin/activate
-$ pip install -U pip
-```
-
 # Bottom-up-attentionのインストール
 Bottom-up-attentionのclone
 
@@ -49,13 +40,24 @@ $ for i in *.zip;do unzip $i;done
 
 ```
 
-データセットの前処理の実行
+データセットの前処理の実行。このコマンドのみ python2 で実行する必要がある。
 
 ```bash
 $ cd ../../ 
-$ python data/genome/setup_vg.py
+$ python2 data/genome/setup_vg.py
 ```
 # faster-rcnn.pytorchのインストール
+
+Python 環境の作成。ここからはpython 3.6.9にて実施
+
+```bash
+$ cd ../
+$ python -m venv env
+$ source env/bin/activate
+$ pip install -U pip
+```
+
+レポジトリのclone 
 
 ```bash
 $ cd ..
