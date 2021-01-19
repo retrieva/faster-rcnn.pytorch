@@ -57,11 +57,11 @@ $ source env/bin/activate
 $ pip install -U pip
 ```
 
-レポジトリのclone。 `git@github.com:jwyang/faster-rcnn.pytorch.git` の部分は適宜トヨタ様レポジトリに変更してください。
+レポジトリのclone。
 
 ```bash
 $ cd ..
-$ git clone git@github.com:jwyang/faster-rcnn.pytorch.git
+$ git clone git@https://gh01.base.toyota-tokyo.tech/ko-koga/captioning/tree/master/faster-rcnn.pytorch-master.git
 $ cd faster-rcnn.pytorch
 $ git checkout -b origin/visual-genome
 ```
