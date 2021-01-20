@@ -61,7 +61,7 @@ $ pip install -U pip
 
 ```bash
 $ cd ..
-$ git clone git@gh01.base.toyota-tokyo.tech/ko-koga/captioning/tree/master/faster-rcnn.pytorch-master.git
+$ git clone git@gh01.base.toyota-tokyo.tech/ko-koga/captioning/faster-rcnn.pytorch-master.git
 $ cd faster-rcnn.pytorch
 $ git checkout -b origin/visual-genome
 ```
