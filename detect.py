@@ -167,9 +167,11 @@ class LandmarkDetector:
         landmarks = []
         for label in labels:
             if label in self.category:
-                landmarks.append(self._searchLandmark(latitude,
-                                                      longitude,
-                                                      self.category[label]))
+                landmark = self._searchLandmark(latitude,
+                                                longitude,
+                                                self.category[label])
+                if landmark:
+                    landmarks.append(landmark)
         return landmarks
 
     def _searchLandmark(self, lat, lon, category):
@@ -179,4 +181,7 @@ class LandmarkDetector:
         uh = urllib.request.urlopen(url)
         data = uh.read().decode()
         js = json.loads(data)
-        return js["results"][0]["name"]
+        if len(js["results"]) == 0:
+            return None
+        else:
+            return js["results"][0]["name"]
