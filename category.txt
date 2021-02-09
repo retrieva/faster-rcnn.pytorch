@@ -1,0 +1,2 @@
+tower	塔
+mountain	山
