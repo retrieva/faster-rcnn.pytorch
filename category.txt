@@ -1,2 +1,3 @@
-tower	塔
-mountain	山
+tower	塔	tourist_attraction	1
+mountain	山	tourist_attraction	1
+building	ビル	establishment	5

@@ -49,7 +49,11 @@ def _load_category(category_file):
     with open(category_file) as f:
         for i in f.readlines():
             splited = i.split("\t")
-            category[splited[0].strip()] = splited[1].strip()
+            entry = {}
+            entry["keyword"] = splited[1].strip()
+            entry["type"] = splited[2].strip()
+            entry["num"] = int(splited[3].strip())
+            category[splited[0].strip()] = entry
     return category
 
 
@@ -118,11 +122,9 @@ class LandmarkDetector:
         fields = "fields=" + "review"
         radius = "&radius=" + "200"
         rankby = "&rankby=prominence"
-        request_type = "&type=" + "tourist_attraction"
         language = "&language=ja"
         key = "&key=" + apikey
-        return baseurl + fields + radius + \
-            rankby + request_type + language + key
+        return baseurl + fields + radius + rankby + language + key
 
     def detectLandmark(self, im_in, latitude, longitude):
         # im_in = np.array(imread(im_file))
@@ -171,17 +173,18 @@ class LandmarkDetector:
                                                 longitude,
                                                 self.category[label])
                 if landmark:
-                    landmarks.append(landmark)
+                    landmarks.extend(landmark)
         return landmarks
 
-    def _searchLandmark(self, lat, lon, category):
+    def _searchLandmark(self, lat, lon, search_info):
         location = "&location={},{}".format(lat, lon)
-        keyword = "&keyword=" + urllib.parse.quote(category)
-        url = self.baseurl + location + keyword
+        keyword = "&keyword=" + urllib.parse.quote(search_info["keyword"])
+        request_type = "&type=" + search_info["type"]
+        url = self.baseurl + location + keyword + request_type
         uh = urllib.request.urlopen(url)
         data = uh.read().decode()
         js = json.loads(data)
         if len(js["results"]) == 0:
-            return None
+            return []
         else:
-            return js["results"][0]["name"]
+            return [js["results"][i]["name"] for i in range(search_info["num"])]
